@@ -1,0 +1,509 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>State University — Admissions Assistant</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600;700&family=DM+Sans:wght@300;400;500;600&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --navy:       #0d1f3c;
+      --navy-light: #162b52;
+      --gold:       #c9a227;
+      --gold-light: #f0c84a;
+      --cream:      #faf7f0;
+      --white:      #ffffff;
+      --gray-100:   #f4f4f4;
+      --gray-300:   #d1d1d1;
+      --gray-500:   #888;
+      --text:       #1a1a2e;
+      --user-bubble:#0d1f3c;
+      --bot-bubble: #ffffff;
+      --shadow:     0 8px 32px rgba(13,31,60,0.12);
+    }
+
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    body {
+      font-family: 'DM Sans', sans-serif;
+      background: var(--cream);
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      overflow: hidden;
+    }
+
+    /* Background pattern */
+    body::before {
+      content: '';
+      position: fixed;
+      inset: 0;
+      background:
+        radial-gradient(ellipse 80% 60% at 10% 0%, rgba(201,162,39,0.08) 0%, transparent 60%),
+        radial-gradient(ellipse 60% 50% at 90% 100%, rgba(13,31,60,0.07) 0%, transparent 60%);
+      pointer-events: none;
+      z-index: 0;
+    }
+
+    /* ── HEADER ── */
+    header {
+      width: 100%;
+      background: var(--navy);
+      padding: 0 2rem;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      height: 64px;
+      position: relative;
+      z-index: 10;
+      box-shadow: 0 2px 20px rgba(0,0,0,0.25);
+    }
+
+    .header-brand {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+    }
+
+    .header-crest {
+      width: 40px;
+      height: 40px;
+      background: var(--gold);
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 18px;
+      font-weight: 700;
+      color: var(--navy);
+      font-family: 'Playfair Display', serif;
+      flex-shrink: 0;
+    }
+
+    .header-title {
+      font-family: 'Playfair Display', serif;
+      font-size: 1.1rem;
+      color: var(--white);
+      line-height: 1.2;
+    }
+
+    .header-subtitle {
+      font-size: 0.7rem;
+      color: var(--gold-light);
+      font-weight: 300;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+    }
+
+    .header-status {
+      display: flex;
+      align-items: center;
+      gap: 6px;
+      font-size: 0.78rem;
+      color: rgba(255,255,255,0.7);
+    }
+
+    .status-dot {
+      width: 8px;
+      height: 8px;
+      background: #4ade80;
+      border-radius: 50%;
+      animation: pulse 2s ease-in-out infinite;
+    }
+
+    @keyframes pulse {
+      0%, 100% { opacity: 1; transform: scale(1); }
+      50% { opacity: 0.6; transform: scale(1.2); }
+    }
+
+    /* ── MAIN LAYOUT ── */
+    main {
+      flex: 1;
+      width: 100%;
+      max-width: 820px;
+      display: flex;
+      flex-direction: column;
+      padding: 1.5rem 1rem 0;
+      position: relative;
+      z-index: 1;
+      height: calc(100vh - 64px);
+    }
+
+    /* ── QUICK PROMPTS ── */
+    .quick-prompts {
+      display: flex;
+      gap: 8px;
+      flex-wrap: wrap;
+      margin-bottom: 1rem;
+    }
+
+    .quick-btn {
+      background: var(--white);
+      border: 1.5px solid var(--gold);
+      color: var(--navy);
+      padding: 6px 14px;
+      border-radius: 20px;
+      font-size: 0.78rem;
+      font-family: 'DM Sans', sans-serif;
+      font-weight: 500;
+      cursor: pointer;
+      transition: all 0.2s;
+      white-space: nowrap;
+    }
+
+    .quick-btn:hover {
+      background: var(--gold);
+      color: var(--navy);
+      transform: translateY(-1px);
+      box-shadow: 0 4px 12px rgba(201,162,39,0.3);
+    }
+
+    /* ── CHAT WINDOW ── */
+    #chat-window {
+      flex: 1;
+      overflow-y: auto;
+      display: flex;
+      flex-direction: column;
+      gap: 16px;
+      padding: 1rem 0.5rem;
+      scroll-behavior: smooth;
+    }
+
+    #chat-window::-webkit-scrollbar { width: 5px; }
+    #chat-window::-webkit-scrollbar-track { background: transparent; }
+    #chat-window::-webkit-scrollbar-thumb { background: var(--gray-300); border-radius: 10px; }
+
+    /* ── MESSAGES ── */
+    .message-row {
+      display: flex;
+      align-items: flex-end;
+      gap: 10px;
+      animation: slideIn 0.3s ease;
+    }
+
+    @keyframes slideIn {
+      from { opacity: 0; transform: translateY(10px); }
+      to   { opacity: 1; transform: translateY(0); }
+    }
+
+    .message-row.user { flex-direction: row-reverse; }
+
+    .avatar {
+      width: 34px;
+      height: 34px;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 15px;
+      flex-shrink: 0;
+      font-weight: 600;
+    }
+
+    .avatar.bot {
+      background: var(--navy);
+      color: var(--gold);
+      font-family: 'Playfair Display', serif;
+      font-size: 13px;
+    }
+
+    .avatar.user {
+      background: var(--gold);
+      color: var(--navy);
+    }
+
+    .bubble {
+      max-width: 72%;
+      padding: 12px 16px;
+      border-radius: 18px;
+      font-size: 0.88rem;
+      line-height: 1.6;
+      box-shadow: var(--shadow);
+    }
+
+    .bubble.bot {
+      background: var(--bot-bubble);
+      color: var(--text);
+      border-bottom-left-radius: 4px;
+      border: 1px solid rgba(0,0,0,0.06);
+    }
+
+    .bubble.user {
+      background: var(--user-bubble);
+      color: var(--white);
+      border-bottom-right-radius: 4px;
+    }
+
+    .bubble ul {
+      padding-left: 1.2em;
+      margin-top: 4px;
+    }
+
+    .bubble li { margin: 3px 0; }
+    .bubble strong { font-weight: 600; }
+    .bubble em { font-style: italic; color: var(--gray-500); font-size: 0.83rem; }
+
+    .timestamp {
+      font-size: 0.68rem;
+      color: var(--gray-500);
+      margin-top: 4px;
+      padding: 0 4px;
+    }
+
+    .message-row.user .timestamp { text-align: right; }
+
+    /* ── TYPING INDICATOR ── */
+    .typing-indicator {
+      display: none;
+      align-items: center;
+      gap: 10px;
+    }
+
+    .typing-indicator.visible { display: flex; }
+
+    .typing-bubble {
+      background: var(--white);
+      border: 1px solid rgba(0,0,0,0.06);
+      padding: 12px 18px;
+      border-radius: 18px;
+      border-bottom-left-radius: 4px;
+      box-shadow: var(--shadow);
+      display: flex;
+      gap: 5px;
+      align-items: center;
+    }
+
+    .dot {
+      width: 7px;
+      height: 7px;
+      background: var(--gold);
+      border-radius: 50%;
+      animation: bounce 1.2s ease-in-out infinite;
+    }
+
+    .dot:nth-child(2) { animation-delay: 0.2s; }
+    .dot:nth-child(3) { animation-delay: 0.4s; }
+
+    @keyframes bounce {
+      0%, 60%, 100% { transform: translateY(0); }
+      30% { transform: translateY(-6px); }
+    }
+
+    /* ── INPUT AREA ── */
+    .input-area {
+      padding: 1rem 0 1.5rem;
+      display: flex;
+      gap: 10px;
+      align-items: flex-end;
+    }
+
+    #user-input {
+      flex: 1;
+      padding: 12px 18px;
+      border: 1.5px solid var(--gray-300);
+      border-radius: 28px;
+      font-family: 'DM Sans', sans-serif;
+      font-size: 0.9rem;
+      color: var(--text);
+      background: var(--white);
+      outline: none;
+      resize: none;
+      min-height: 48px;
+      max-height: 120px;
+      transition: border-color 0.2s, box-shadow 0.2s;
+      line-height: 1.5;
+    }
+
+    #user-input:focus {
+      border-color: var(--gold);
+      box-shadow: 0 0 0 3px rgba(201,162,39,0.15);
+    }
+
+    #user-input::placeholder { color: var(--gray-500); }
+
+    #send-btn {
+      width: 48px;
+      height: 48px;
+      border-radius: 50%;
+      background: var(--navy);
+      border: none;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-shrink: 0;
+      transition: background 0.2s, transform 0.15s;
+      box-shadow: 0 4px 12px rgba(13,31,60,0.25);
+    }
+
+    #send-btn:hover { background: var(--gold); transform: scale(1.05); }
+    #send-btn:hover svg path { fill: var(--navy); }
+    #send-btn:active { transform: scale(0.96); }
+
+    #send-btn svg path { fill: var(--white); transition: fill 0.2s; }
+
+    /* ── WELCOME MESSAGE SPECIAL STYLING ── */
+    .welcome-card {
+      background: linear-gradient(135deg, var(--navy) 0%, var(--navy-light) 100%);
+      color: var(--white);
+      border-radius: 16px;
+      padding: 20px 22px;
+      box-shadow: 0 8px 32px rgba(13,31,60,0.2);
+      margin-bottom: 4px;
+    }
+
+    .welcome-card strong { color: var(--gold-light); }
+
+    /* Responsive */
+    @media (max-width: 600px) {
+      .bubble { max-width: 85%; font-size: 0.84rem; }
+      .quick-btn { font-size: 0.74rem; padding: 5px 11px; }
+      header { padding: 0 1rem; }
+      .header-title { font-size: 1rem; }
+    }
+  </style>
+</head>
+<body>
+
+<header>
+  <div class="header-brand">
+    <div class="header-crest">SU</div>
+    <div>
+      <div class="header-title">State University</div>
+      <div class="header-subtitle">Admissions Assistant</div>
+    </div>
+  </div>
+  <div class="header-status">
+    <div class="status-dot"></div>
+    Online · Ready to help
+  </div>
+</header>
+
+<main>
+  <div class="quick-prompts">
+    <button class="quick-btn" onclick="sendQuick('Show all programs')">📚 All Programs</button>
+    <button class="quick-btn" onclick="sendQuick('What are the application deadlines?')">📅 Deadlines</button>
+    <button class="quick-btn" onclick="sendQuick('What documents do I need?')">📋 Requirements</button>
+    <button class="quick-btn" onclick="sendQuick('Tell me about scholarships')">💰 Financial Aid</button>
+    <button class="quick-btn" onclick="sendQuick('International student info')">🌍 International</button>
+    <button class="quick-btn" onclick="sendQuick('Contact information')">📞 Contact</button>
+  </div>
+
+  <div id="chat-window">
+    <!-- Welcome message injected by JS -->
+  </div>
+
+  <div class="typing-indicator" id="typing">
+    <div class="avatar bot">SU</div>
+    <div class="typing-bubble">
+      <div class="dot"></div>
+      <div class="dot"></div>
+      <div class="dot"></div>
+    </div>
+  </div>
+
+  <div class="input-area">
+    <textarea id="user-input" placeholder="Ask about programs, deadlines, requirements…" rows="1"></textarea>
+    <button id="send-btn" onclick="sendMessage()" title="Send">
+      <svg width="20" height="20" viewBox="0 0 24 24" fill="none">
+        <path d="M22 2L11 13" stroke="white" stroke-width="2.5" stroke-linecap="round"/>
+        <path d="M22 2L15 22L11 13L2 9L22 2Z" stroke="white" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/>
+      </svg>
+    </button>
+  </div>
+</main>
+
+<script>
+  const chatWindow = document.getElementById('chat-window');
+  const typingEl   = document.getElementById('typing');
+  const inputEl    = document.getElementById('user-input');
+
+  function getTime() {
+    return new Date().toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' });
+  }
+
+  function appendMessage(html, sender) {
+    const row = document.createElement('div');
+    row.className = `message-row ${sender}`;
+
+    const avatar = document.createElement('div');
+    avatar.className = `avatar ${sender}`;
+    avatar.textContent = sender === 'bot' ? 'SU' : '👤';
+
+    const wrapper = document.createElement('div');
+
+    const bubble = document.createElement('div');
+    bubble.className = `bubble ${sender}`;
+    bubble.innerHTML = html;
+
+    const ts = document.createElement('div');
+    ts.className = 'timestamp';
+    ts.textContent = getTime();
+
+    wrapper.appendChild(bubble);
+    wrapper.appendChild(ts);
+    row.appendChild(avatar);
+    row.appendChild(wrapper);
+    chatWindow.appendChild(row);
+    chatWindow.scrollTop = chatWindow.scrollHeight;
+  }
+
+  function showTyping()  { typingEl.classList.add('visible');    chatWindow.scrollTop = chatWindow.scrollHeight; }
+  function hideTyping()  { typingEl.classList.remove('visible'); }
+
+  async function sendMessage() {
+    const text = inputEl.value.trim();
+    if (!text) return;
+
+    appendMessage(text, 'user');
+    inputEl.value = '';
+    inputEl.style.height = 'auto';
+    showTyping();
+
+    try {
+      const res  = await fetch('/chat', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ message: text })
+      });
+      const data = await res.json();
+      hideTyping();
+      appendMessage(data.response, 'bot');
+    } catch {
+      hideTyping();
+      appendMessage('⚠️ Connection error. Please try again.', 'bot');
+    }
+  }
+
+  function sendQuick(text) {
+    inputEl.value = text;
+    sendMessage();
+  }
+
+  // Auto-resize textarea
+  inputEl.addEventListener('input', () => {
+    inputEl.style.height = 'auto';
+    inputEl.style.height = Math.min(inputEl.scrollHeight, 120) + 'px';
+  });
+
+  // Enter to send (Shift+Enter = newline)
+  inputEl.addEventListener('keydown', e => {
+    if (e.key === 'Enter' && !e.shiftKey) { e.preventDefault(); sendMessage(); }
+  });
+
+  // Initial greeting
+  window.addEventListener('DOMContentLoaded', () => {
+    setTimeout(() => {
+      appendMessage(
+        `<strong style="font-size:1.05em">👋 Welcome to State University Admissions!</strong><br><br>
+         I'm your virtual admissions guide. I can help you explore programs, check deadlines, understand requirements, and find financial aid options.<br><br>
+         Use the quick buttons above or just type your question below. <em>What would you like to know?</em>`,
+        'bot'
+      );
+    }, 400);
+  });
+</script>
+</body>
+</html>
