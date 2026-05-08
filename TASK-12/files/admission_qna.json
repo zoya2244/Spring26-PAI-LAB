@@ -1,0 +1,152 @@
+[
+  {
+    "question": "What are the admission requirements for Computer Science?",
+    "answer": "For Computer Science, you need a minimum GPA of 3.2/4.0, SAT score of 1250+, IELTS 6.5 for international students, two recommendation letters, a personal statement, and official high school transcripts. Application deadline is January 15, 2026.",
+    "topic": "Computer Science"
+  },
+  {
+    "question": "How do I apply to the Business Administration program?",
+    "answer": "To apply for Business Administration, submit your completed application form, official transcripts showing GPA 3.0+, SAT 1150+, two recommendation letters, a 500-word personal statement, and pay the $75 application fee. The deadline is February 1, 2026.",
+    "topic": "Business Administration"
+  },
+  {
+    "question": "What is the deadline for regular admission?",
+    "answer": "The regular decision deadline is January 15, 2026. Early Decision deadline is November 1, 2025, and Early Action is November 15, 2025. Transfer students must apply by March 1, 2026.",
+    "topic": "Deadlines"
+  },
+  {
+    "question": "Are there any scholarships available for new students?",
+    "answer": "Yes! Merit scholarships up to $10,000/year are available for students with GPA 3.5+. International students can receive up to $8,000/year. Need-based grants are also available through FAFSA. Apply for scholarships by December 1, 2025.",
+    "topic": "Financial Aid"
+  },
+  {
+    "question": "What documents are required for the application?",
+    "answer": "Required documents include: completed application form, official high school transcripts, SAT/ACT scores, two letters of recommendation, personal statement (500–650 words), English proficiency test (IELTS/TOEFL) for international students, copy of passport, and a $75 application fee.",
+    "topic": "Requirements"
+  },
+  {
+    "question": "What programs does the university offer?",
+    "answer": "We offer Bachelor's programs in: Computer Science (4 yrs, $18,500/yr), Business Administration (4 yrs, $16,000/yr), Data Science (4 yrs, $19,000/yr), Mechanical Engineering (4 yrs, $20,000/yr), Psychology (4 yrs, $14,500/yr), and Doctor of Medicine MD (6 yrs, $35,000/yr).",
+    "topic": "Programs"
+  },
+  {
+    "question": "What is the tuition fee for international students?",
+    "answer": "Tuition varies by program: CS $18,500/yr, Business $16,000/yr, Data Science $19,000/yr, Mechanical Engineering $20,000/yr, Psychology $14,500/yr, Medicine $35,000/yr. International merit scholarships of up to $8,000/yr are available. Additional fees include housing ($6,000/yr) and health insurance ($1,200/yr).",
+    "topic": "Tuition"
+  },
+  {
+    "question": "What GPA do I need to get into the university?",
+    "answer": "General minimum GPA is 2.7/4.0. Program-specific minimums: Computer Science 3.2, Business Administration 3.0, Data Science 3.3, Mechanical Engineering 3.4, Psychology 2.8, Medicine 3.8. Higher GPA improves your chances and makes you eligible for merit scholarships (3.5+ GPA).",
+    "topic": "Requirements"
+  },
+  {
+    "question": "Can international students apply?",
+    "answer": "Yes! International students are welcome. You need IELTS 6.0–7.0 (varies by program) or TOEFL 80 iBT minimum. Submit a valid passport copy. Our International Office supports F-1 visa applications. International merit scholarships up to $8,000/year are available.",
+    "topic": "International"
+  },
+  {
+    "question": "What is the application process step by step?",
+    "answer": "Step 1: Create an online account at apply.stateuniversity.edu. Step 2: Fill out the application form. Step 3: Upload transcripts, SAT/ACT scores, and recommendation letters. Step 4: Write your personal statement. Step 5: Pay the $75 application fee. Step 6: Submit before your program's deadline. Step 7: Check your email for admission decision.",
+    "topic": "Application Process"
+  },
+  {
+    "question": "How long does the admission decision take?",
+    "answer": "Early Decision applicants receive decisions by December 15, 2025. Early Action decisions come by January 31, 2026. Regular Decision applicants hear back by March 31, 2026. Transfer students are notified by April 15, 2026.",
+    "topic": "Deadlines"
+  },
+  {
+    "question": "What SAT score do I need for Computer Science?",
+    "answer": "Computer Science requires a minimum SAT score of 1250. A score of 1400+ significantly strengthens your application. ACT equivalent is 26+. Strong math scores are particularly important for CS applicants.",
+    "topic": "Computer Science"
+  },
+  {
+    "question": "Is financial aid available for all students?",
+    "answer": "Yes, multiple options exist: Merit scholarships (GPA 3.5+, up to $10,000/yr), need-based grants via FAFSA, international scholarships (up to $8,000/yr), on-campus work-study programs, and federal/private loans. Apply for financial aid by February 1, 2026.",
+    "topic": "Financial Aid"
+  },
+  {
+    "question": "What is the application fee and is it refundable?",
+    "answer": "The application fee is $75 (non-refundable). Fee waivers are available for students demonstrating financial hardship — contact the admissions office with supporting documents. International students pay the same $75 fee.",
+    "topic": "Application Process"
+  },
+  {
+    "question": "What IELTS score do I need for admission?",
+    "answer": "IELTS minimum scores by program: Business Administration and Psychology require 6.0+, Computer Science and Data Science require 6.5+, Mechanical Engineering requires 6.5+, Medicine requires 7.0+. TOEFL iBT 80+ is accepted as an alternative.",
+    "topic": "International"
+  },
+  {
+    "question": "Tell me about the Data Science program.",
+    "answer": "The BS in Data Science is a 4-year program (128 credits) costing $19,000/year. It covers statistics, machine learning, data engineering, and visualization. Requirements: GPA 3.3+, SAT 1280+, IELTS 6.5+. Application deadline: January 15, 2026. Only 80 seats available.",
+    "topic": "Data Science"
+  },
+  {
+    "question": "What are the requirements for the Medicine program?",
+    "answer": "The MD program is highly competitive: minimum GPA 3.8, SAT 1500+, IELTS 7.0+. Duration is 6 years (220 credits) at $35,000/year. Includes MCAT, clinical rotations, and interviews. Only 60 seats. Apply by November 1, 2025 — the earliest deadline of all programs.",
+    "topic": "Medicine"
+  },
+  {
+    "question": "How do I contact the admissions office?",
+    "answer": "Admissions Office: Email admissions@stateuniversity.edu, Phone +1 (555) 234-5678, located at Admissions Building Room 101. Office hours: Monday–Friday 8:00 AM – 5:00 PM. For international inquiries: international@stateuniversity.edu.",
+    "topic": "Contact"
+  },
+  {
+    "question": "Can I apply for early decision?",
+    "answer": "Yes. Early Decision deadline is November 1, 2025. It is binding — if accepted, you must enroll and withdraw all other applications. Early Action (non-binding) deadline is November 15, 2025. Both offer earlier decision dates and sometimes slightly better acceptance rates.",
+    "topic": "Deadlines"
+  },
+  {
+    "question": "What is the Mechanical Engineering program like?",
+    "answer": "BS in Mechanical Engineering is a 4-year program (132 credits) at $20,000/year. Covers thermodynamics, fluid mechanics, materials science, and robotics. Requirements: GPA 3.4+, SAT 1300+, IELTS 6.5+. One of the most rigorous programs with 100 seats. Deadline: January 15, 2026.",
+    "topic": "Mechanical Engineering"
+  },
+  {
+    "question": "Is on-campus housing available for students?",
+    "answer": "Yes, on-campus dormitories are available at $6,000/year (double occupancy) or $8,500/year (single room). Housing applications open February 1, 2026 for admitted students. First-year students are encouraged to live on campus. Apply early as spaces fill quickly.",
+    "topic": "Campus Life"
+  },
+  {
+    "question": "What extracurricular activities are available?",
+    "answer": "The university offers 150+ student clubs including coding clubs, business case competitions, robotics teams, cultural organizations, and student government. There are also sports teams, fitness centers, music ensembles, and volunteer programs. Active student life is considered in holistic admissions review.",
+    "topic": "Campus Life"
+  },
+  {
+    "question": "Is there a transfer admission option?",
+    "answer": "Yes! Transfer students apply by March 1, 2026. You need at least 30 college credits with a GPA of 2.7+ (3.0+ preferred). College transcripts, a transfer essay, and one academic recommendation are required. Some credits from accredited colleges may transfer toward your degree.",
+    "topic": "Application Process"
+  },
+  {
+    "question": "What is the acceptance rate?",
+    "answer": "Overall acceptance rate is approximately 42%. Competitive programs like Medicine (~12%) and Data Science (~28%) are more selective. Computer Science (~35%), Engineering (~38%), Business (~45%), and Psychology (~55%) have varied rates. Strong GPA, test scores, and a compelling personal statement improve your chances.",
+    "topic": "Admission Statistics"
+  },
+  {
+    "question": "Do I need to write a personal statement?",
+    "answer": "Yes, a personal statement of 500–650 words is required for all applicants. It should describe your academic interests, why you chose this program, career goals, and what you will contribute to the university community. Medicine applicants also submit a separate 300-word research/clinical experience statement.",
+    "topic": "Requirements"
+  },
+  {
+    "question": "What is the Psychology program requirements?",
+    "answer": "BS in Psychology is a 4-year program (120 credits) at $14,500/year. Covers cognitive, developmental, clinical, and social psychology. Requirements: GPA 2.8+, SAT 1100+, IELTS 6.0+. 120 seats available. Application deadline: February 15, 2026. One of the more accessible programs.",
+    "topic": "Psychology"
+  },
+  {
+    "question": "Are interviews required for admission?",
+    "answer": "Interviews are required for Medicine and are recommended for Computer Science and Data Science. Other programs review applications holistically without interviews. Medicine interviews are held January–February 2026 by invitation. Prepare by reviewing your personal statement and research interests.",
+    "topic": "Application Process"
+  },
+  {
+    "question": "What is work-study and how do I apply?",
+    "answer": "Work-study provides part-time campus jobs (library, labs, admin offices) for students with financial need. Earn $10–$15/hour, up to 20 hrs/week. Apply via FAFSA and indicate interest in work-study. Positions are assigned after enrollment. Excellent way to gain experience and offset costs.",
+    "topic": "Financial Aid"
+  },
+  {
+    "question": "What is the scholarship deadline?",
+    "answer": "Scholarship application deadline is December 1, 2025. Submit your scholarship application along with transcripts, a scholarship essay (300 words), and financial need documentation (if applying for need-based aid). Merit scholarships are awarded to top applicants with GPA 3.5+ automatically.",
+    "topic": "Financial Aid"
+  },
+  {
+    "question": "How many recommendation letters do I need?",
+    "answer": "Two letters of recommendation are required for all programs. At least one must be from an academic teacher (math, science, or English preferred). The second can be from a counselor, coach, or employer. Medicine applicants need three letters, including one from a science teacher.",
+    "topic": "Requirements"
+  }
+]
