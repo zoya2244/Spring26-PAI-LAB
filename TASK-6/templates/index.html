@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Face Personality Analyzer</title>
+</head>
+<body>
+
+<h2>Upload Image</h2>
+
+<form method="POST" enctype="multipart/form-data">
+    <input type="file" name="image" required>
+    <button type="submit">Analyze</button>
+</form>
+
+{% if result %}
+    <h3>Result: {{ result }}</h3>
+    <img src="{{ image }}" width="300">
+{% endif %}
+
+</body>
+</html>
